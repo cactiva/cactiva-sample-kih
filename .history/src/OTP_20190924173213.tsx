@@ -61,12 +61,9 @@ export default observer(() => {
           textAlign: "center",
           color: "#393939"
         }}
-        children={"Please enter One-Time Password"}
+        children={"Please enter OTP Code"}
       />
-      <Input
-        style={{ marginTop: 0, width: 199, alignItems: "center" }}
-        placeholder={"OTP Code (6 digit)"}
-      />
+      <Input style={{ marginTop: 0, width: 199 }} placeholder={"Kode OTP"} />
       <Text
         style={{
           marginTop: 14,
@@ -76,17 +73,15 @@ export default observer(() => {
           textAlign: "center",
           color: "#7a7a7a"
         }}
-        children={
-          `OTP Code has been send to your phone number.\n` +
-          `${meta.timer} seconds until expired`
-        }
+        children={`OTP Code has been send to your phone number.
+${meta.timer} seconds until expired...`}
       />
       <Button
         style={{ marginTop: 27 }}
-        children={"Verify OTP"}
+        children={"Submit"}
         size={"large"}
         onPress={() => {
-          nav.navigate("Main/Home");
+          nav.navigate("Home");
         }}
       />
     </Layout>

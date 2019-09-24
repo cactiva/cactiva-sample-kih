@@ -1,10 +1,10 @@
 {
-  "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19004,
-  "packagerPid": 6065,
-  "expoServerNgrokUrl": "https://sa-7bd.rizandro.base.exp.direct",
-  "packagerNgrokUrl": "https://packager.sa-7bd.rizandro.base.exp.direct",
-  "ngrokPid": 6074,
+  "devToolsPort": 19003,
+  "expoServerPort": 19004,
+  "packagerPort": 19005,
+  "packagerPid": 1943,
+  "expoServerNgrokUrl": "https://vg-bvh.rizandro.base.exp.direct",
+  "packagerNgrokUrl": "https://packager.vg-bvh.rizandro.base.exp.direct",
+  "ngrokPid": 1967,
   "webpackServerPort": 19007
 }

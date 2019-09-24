@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { observer, useObservable } from "mobx-react-lite";
 import { Layout, Text, Button } from "react-native-ui-kitten";
 import { Image } from "react-native";
 import { Input } from "@src/libs";
 import { useNavigation } from "react-navigation-hooks";
+import { useEffect } from "react";
 
 export default observer(() => {
   const nav = useNavigation();
@@ -35,8 +36,7 @@ export default observer(() => {
             marginTop: 31,
             fontSize: 31,
             lineHeight: 42,
-            color: "#52c1e6",
-            fontFamily: "regular"
+            color: "#52c1e6"
           }}
           children={"Kasih Ibu"}
           status={""}
@@ -46,47 +46,22 @@ export default observer(() => {
             marginTop: 31,
             fontSize: 31,
             lineHeight: 42,
-            color: "#bece43",
-            fontFamily: "regular"
+            color: "#bece43"
           }}
           children={" Hospital"}
         />
       </Layout>
+      <Input style={{ marginTop: 72, width: 199 }} placeholder={"Kode OTP"} />
       <Text
-        style={{
-          marginTop: 46,
-          marginBottom: 15,
-          fontFamily: "regular",
-          fontSize: 17,
-          textAlign: "center",
-          color: "#393939"
-        }}
-        children={"Please enter One-Time Password"}
-      />
-      <Input
-        style={{ marginTop: 0, width: 199, alignItems: "center" }}
-        placeholder={"OTP Code (6 digit)"}
-      />
-      <Text
-        style={{
-          marginTop: 14,
-          marginBottom: 32,
-          fontFamily: "regular",
-          fontSize: 13,
-          textAlign: "center",
-          color: "#7a7a7a"
-        }}
-        children={
-          `OTP Code has been send to your phone number.\n` +
-          `${meta.timer} seconds until expired`
-        }
+        style={{ marginTop: 14, marginBottom: 32 }}
+        children={meta.timer + " detik "}
       />
       <Button
         style={{ marginTop: 27 }}
-        children={"Verify OTP"}
+        children={"Submit"}
         size={"large"}
         onPress={() => {
-          nav.navigate("Main/Home");
+          nav.navigate("Home");
         }}
       />
     </Layout>

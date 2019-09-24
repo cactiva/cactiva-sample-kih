@@ -2,6 +2,7 @@ import React from "react";
 import { observer, useObservable } from "mobx-react-lite";
 import { Layout, Button, Text, List } from "react-native-ui-kitten";
 import { Icon } from "@src/libs";
+import Calendar from "react-native-calendars";
 
 export default observer(() => {
   const abc = useObservable({
@@ -34,6 +35,25 @@ export default observer(() => {
             </>
           );
         }}
+      />
+      <Calendar
+        markedDates={{
+          "2017-12-14": {
+            periods: [
+              { startingDay: false, endingDay: true, color: "#5f9ea0" },
+              { startingDay: false, endingDay: true, color: "#ffa500" },
+              { startingDay: true, endingDay: false, color: "#f0e68c" }
+            ]
+          },
+          "2017-12-15": {
+            periods: [
+              { startingDay: true, endingDay: false, color: "#ffa500" },
+              { color: "transparent" },
+              { startingDay: false, endingDay: false, color: "#f0e68c" }
+            ]
+          }
+        }}
+        markingType={"multi-period"}
       />
     </Layout>
   );

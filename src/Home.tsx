@@ -3,8 +3,10 @@ import { observer } from "mobx-react-lite";
 import { Layout, Text, Button } from "react-native-ui-kitten";
 import { Image } from "react-native";
 import { Input } from "@src/libs";
+import { useNavigation } from "react-navigation-hooks";
 
 export default observer(() => {
+  const nav = useNavigation();
   return (
     <Layout
       style={{
@@ -17,7 +19,7 @@ export default observer(() => {
     >
       <Image
         style={{ width: 95, height: 80, marginTop: 42 }}
-        source={require("@src/assets/logo.png")}
+        source={require("@src/assets/images/logo.png")}
       />
       <Layout
         style={{
@@ -52,7 +54,14 @@ export default observer(() => {
         placeholder={"No. Handphone"}
       />
       <Input style={{ marginTop: 13, width: 367 }} placeholder={"PRN"} />
-      <Button style={{ marginTop: 27 }} children={"Submit"} size={"large"} />
+      <Button
+        style={{ marginTop: 27 }}
+        children={"Sign in"}
+        size={"large"}
+        onPress={() => {
+          nav.navigate("OTP");
+        }}
+      />
     </Layout>
   );
 });
