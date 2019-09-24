@@ -23,7 +23,7 @@ export default observer(() => {
     >
       {
         ({
-          0: <Main meta={meta} />,
+          0: <Main />,
           1: <Appointment />,
           2: <Prescription />,
           3: <Report />
