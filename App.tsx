@@ -30,12 +30,11 @@ export default observer(() => {
   useEffect(() => {
     (async () => {
       await Font.loadAsync({
-        regular: require('@src/assets/fonts/regular.ttf'),
-        light: require('@src/assets/fonts/light.ttf'),
-        extralight: require('@src/assets/fonts/extralight.ttf'),
-        medium: require('@src/assets/fonts/medium.ttf'),
-        semibold: require('@src/assets/fonts/semibold.ttf'),
-        bold: require('@src/assets/fonts/bold.ttf')
+        regular: require('@src/assets/fonts/Regular.ttf'),
+        light: require('@src/assets/fonts/Light.ttf'),
+        extralight: require('@src/assets/fonts/ExtraLight.ttf'),
+        semibold: require('@src/assets/fonts/SemiBold.ttf'),
+        bold: require('@src/assets/fonts/Bold.ttf')
       });
       meta.fontLoaded = true;
     })();

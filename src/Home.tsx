@@ -44,7 +44,7 @@ export default observer(() => {
             fontSize: 31,
             lineHeight: 42,
             color: "#bece43",
-            fontFamily: "medium"
+            fontFamily: "semibold"
           }}
           children={" Hospital"}
         />
