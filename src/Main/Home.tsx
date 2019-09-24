@@ -1,6 +1,6 @@
 import React from "react";
 import { observer, useObservable } from "mobx-react-lite";
-import { ImageBackground, View } from "react-native";
+import { ImageBackground } from "react-native";
 import { BottomNavigation, BottomNavigationTab } from "react-native-ui-kitten";
 import { Icon } from "@src/libs";
 import { useDimensions } from "react-native-hooks";
@@ -13,7 +13,7 @@ import Report from "@src/Main/Report";
 export default observer(() => {
   const dim = useDimensions().window;
   const meta = useObservable({
-    page: 0
+    page: 2
   });
   const nav = useNavigation();
   return (
@@ -21,24 +21,14 @@ export default observer(() => {
       style={{ height: dim.height }}
       source={require("@src/assets/images/bg.png")}
     >
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "stretch",
-          justifyContent: "flex-start",
-          flexGrow: 1
-        }}
-      >
-        {
-          ({
-            0: <Main />,
-            1: <Appointment />,
-            2: <Prescription />,
-            3: <Report />
-          } as any)[meta.page]
-        }
-      </View>
+      {
+        ({
+          0: <Main />,
+          1: <Appointment />,
+          2: <Prescription />,
+          3: <Report />
+        } as any)[meta.page]
+      }
       <BottomNavigation
         style={{
           marginTop: -16,

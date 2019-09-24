@@ -10,7 +10,8 @@ export default observer(() => {
       style={{
         flexDirection: "column",
         alignItems: "stretch",
-        justifyContent: "flex-start"
+        justifyContent: "flex-start",
+        flexGrow: 1
       }}
     >
       <View
