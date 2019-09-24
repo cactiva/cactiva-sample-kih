@@ -13,7 +13,7 @@ import Report from "@src/Main/Report";
 export default observer(() => {
   const dim = useDimensions().window;
   const meta = useObservable({
-    page: 3
+    page: 0
   });
   const nav = useNavigation();
   return (

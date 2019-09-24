@@ -3,8 +3,10 @@ import { observer } from "mobx-react-lite";
 import { View, TouchableOpacity } from "react-native";
 import { Text } from "react-native-ui-kitten";
 import { Icon } from "@src/libs";
+import { useNavigation } from "react-navigation-hooks";
 
 export default observer(() => {
+  const nav = useNavigation();
   return (
     <View
       style={{
@@ -58,6 +60,9 @@ export default observer(() => {
             padding: 10,
             borderRadius: 6,
             marginTop: -10
+          }}
+          onPress={() => {
+            nav.navigate("Profile/Home");
           }}
         >
           <Icon

@@ -1,6 +1,6 @@
 import React from "react";
 import { observer, useObservable } from "mobx-react-lite";
-import { View } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { Text, List } from "react-native-ui-kitten";
 import { Icon } from "@src/libs";
 
@@ -14,94 +14,22 @@ export default observer(() => {
         type: "Radiology"
       },
       {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
+        tgl: "1 Sep 2019",
+        title: "Medical Check-Up",
+        status: "Done",
+        type: "Lab Result"
       },
       {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
+        tgl: "17 Aug 2019",
+        title: "Medical Check-Up",
+        status: "Done",
+        type: "Lab Result"
       },
       {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
-      },
-      {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
-      },
-      {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
-      },
-      {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
-      },
-      {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
-      },
-      {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
-      },
-      {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
-      },
-      {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
-      },
-      {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
-      },
-      {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
-      },
-      {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
-      },
-      {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
-      },
-      {
-        tgl: "22 Sep 2019",
-        title: "Chest Roentgen",
-        status: "Waiting",
-        type: "Radiology"
+        tgl: "10 Mei 2019",
+        title: "Blood Check ",
+        status: "Done",
+        type: "Lab Result"
       }
     ]
   });
@@ -116,7 +44,7 @@ export default observer(() => {
       renderItem={({ item }: any) => {
         return (
           <>
-            <View
+            <TouchableOpacity
               style={{
                 display: "flex",
                 flexDirection: "row",
@@ -124,10 +52,12 @@ export default observer(() => {
                 justifyContent: "space-between",
                 margin: 10,
                 padding: 10,
-                backgroundColor: "rgba(179, 212, 255, 0.54)",
-                borderRadius: 7
+                borderRadius: 7,
+                backgroundColor:
+                  item.type === "Radiology"
+                    ? "rgba(179, 212, 255, 0.54)"
+                    : "rgba(179, 255, 230, 0.54)"
               }}
-              itemHeight={100}
             >
               <View
                 style={{
@@ -180,7 +110,7 @@ export default observer(() => {
                 <Text children={item.type} style={{ fontFamily: "regular" }} />
                 <Text children={item.tgl} style={{ fontFamily: "regular" }} />
               </View>
-            </View>
+            </TouchableOpacity>
           </>
         );
       }}
