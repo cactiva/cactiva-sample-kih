@@ -193,8 +193,7 @@ export default observer(() => {
             padding: 10,
             borderWidth: 0,
             borderRadius: 0,
-            backgroundColor: "#f9fcff",
-            paddingBottom: 24
+            backgroundColor: "#f9fcff"
           }}
         >
           <Text
@@ -271,8 +270,7 @@ export default observer(() => {
             padding: 10,
             borderWidth: 0,
             borderRadius: 0,
-            backgroundColor: "#f9fcff",
-            paddingBottom: 24
+            backgroundColor: "#f9fcff"
           }}
         >
           <Text
@@ -349,8 +347,7 @@ export default observer(() => {
             padding: 10,
             borderWidth: 0,
             borderRadius: 0,
-            backgroundColor: "#f9fcff",
-            paddingBottom: 24
+            backgroundColor: "#f9fcff"
           }}
         >
           <Text
