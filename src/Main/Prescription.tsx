@@ -1,10 +1,28 @@
 import React from "react";
-import { observer } from "mobx-react-lite";
+import { observer, useObservable } from "mobx-react-lite";
 import { ScrollView, TouchableOpacity, View } from "react-native";
-import { Text } from "react-native-ui-kitten";
+import { Text, List } from "react-native-ui-kitten";
 import { Icon } from "@src/libs";
+import { useNavigation } from "react-navigation-hooks";
 
 export default observer(() => {
+  const meta = useObservable({
+    data: [
+      {
+        date: "05 June 2019",
+        desc: "Baclofen Oral 350 mg"
+      },
+      {
+        date: "27 Mei 2019",
+        desc: "Baclofen Oral 350 mg"
+      },
+      {
+        date: "14 Mei 2019",
+        desc: "Baclofen Oral 350 mg"
+      }
+    ]
+  });
+  const nav = useNavigation();
   return (
     <ScrollView
       style={{
@@ -29,6 +47,9 @@ export default observer(() => {
           borderColor: "#559cfa",
           marginTop: 37
         }}
+        onPress={() => {
+          nav.navigate("Main/PrescriptionDetail");
+        }}
       >
         <View
           style={{
@@ -43,14 +64,14 @@ export default observer(() => {
             backgroundColor: "",
             paddingBottom: 15,
             borderStyle: "solid",
-            borderColor: "rgb(184, 224, 255)",
+            borderColor: "#71bdff",
             marginBottom: 12
           }}
         >
           <Text
             children={"20 September 2019"}
             style={{
-              color: "#70aee1",
+              color: "#37A2FF",
               fontWeight: "500",
               paddingBottom: 5,
               fontSize: 18
@@ -58,7 +79,7 @@ export default observer(() => {
           />
           <Text
             children={"Dr. Amarjeet Bhatia , MBBS, MSc"}
-            style={{ color: "#70aee1", fontWeight: "500", fontSize: 14 }}
+            style={{ color: "#37A2FF", fontWeight: "500", fontSize: 14 }}
           />
         </View>
         <View
@@ -74,7 +95,7 @@ export default observer(() => {
         >
           <Text
             style={{
-              color: "#5caae9",
+              color: "#37A2FF",
               fontWeight: "500",
               paddingTop: 5,
               paddingBottom: 5
@@ -82,7 +103,7 @@ export default observer(() => {
             children={"• Baclofen Oral 350 mg "}
           />
           <Text
-            style={{ color: "#5caae9", fontWeight: "400", paddingLeft: 15 }}
+            style={{ color: "#37A2FF", fontWeight: "400", paddingLeft: 15 }}
             children={"1 x daily after dinner"}
           />
         </View>
@@ -99,7 +120,7 @@ export default observer(() => {
         >
           <Text
             style={{
-              color: "#5caae9",
+              color: "#37A2FF",
               fontWeight: "500",
               paddingTop: 5,
               paddingBottom: 5
@@ -107,7 +128,7 @@ export default observer(() => {
             children={"• Tab Nurokind-LC 100 mg"}
           />
           <Text
-            style={{ color: "#5caae9", fontWeight: "400", paddingLeft: 15 }}
+            style={{ color: "#37A2FF", fontWeight: "400", paddingLeft: 15 }}
             children={"3 x daily after meal"}
           />
         </View>
@@ -124,250 +145,86 @@ export default observer(() => {
         >
           <Text
             style={{
-              color: "#5caae9",
+              color: "#37A2FF",
               fontWeight: "500",
               paddingTop: 5,
               paddingBottom: 5
             }}
-            children={"• Tab Aclecofenac 150 mg"}
+            children={"• Tab Aceclofenac 150 mg"}
           />
           <Text
-            style={{ color: "#5caae9", fontWeight: "400", paddingLeft: 15 }}
+            style={{ color: "#37A2FF", fontWeight: "400", paddingLeft: 15 }}
             children={"3 x daily after meal"}
           />
         </View>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          backgroundColor: "rgba(244, 250, 255, 0.74)",
-          padding: 10,
-          borderRadius: 16,
-          opacity: 1,
-          marginTop: 22,
-          borderStyle: "solid",
-          borderWidth: 1,
-          borderColor: "#559cfa"
+      <List
+        style={{ opacity: 1, backgroundColor: "rgba(255, 255, 255, 0)" }}
+        data={meta.data}
+        renderItem={({ item }: any) => {
+          return (
+            <>
+              <TouchableOpacity
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  backgroundColor: "rgba(244, 250, 255, 0.74)",
+                  padding: 10,
+                  borderRadius: 16,
+                  opacity: 1,
+                  marginTop: 22,
+                  borderStyle: "solid",
+                  borderWidth: 1,
+                  borderColor: "#559cfa"
+                }}
+                onPress={() => {
+                  nav.navigate("Main/PrescriptionDetail");
+                }}
+              >
+                <View
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    justifyContent: "flex-start",
+                    padding: 10,
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    backgroundColor: "#f9fcff"
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "#37A2FF",
+                      fontWeight: "500",
+                      paddingBottom: 5,
+                      fontSize: 14
+                    }}
+                    children={item.date}
+                  />
+                  <Text
+                    style={{
+                      color: "#37A2FF",
+                      fontWeight: "400",
+                      paddingBottom: 5,
+                      fontSize: 14
+                    }}
+                    children={"• " + item.desc}
+                  />
+                </View>
+                <Icon
+                  source={"AntDesign"}
+                  name={"right"}
+                  size={28}
+                  color={"#70bbfd"}
+                />
+              </TouchableOpacity>
+            </>
+          );
         }}
-      >
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            justifyContent: "flex-start",
-            padding: 10,
-            borderWidth: 0,
-            borderRadius: 0,
-            backgroundColor: "#f9fcff"
-          }}
-        >
-          <Text
-            children={"05 June 2019"}
-            style={{
-              color: "#70aee1",
-              fontWeight: "500",
-              paddingBottom: 5,
-              fontSize: 14
-            }}
-          />
-          <Text
-            children={"• Baclofen Oral 350 mg "}
-            style={{
-              color: "#70aee1",
-              fontWeight: "400",
-              paddingBottom: 5,
-              fontSize: 14
-            }}
-          />
-        </View>
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            padding: 10,
-            borderWidth: 0,
-            borderRadius: 0,
-            backgroundColor: "#f9fcff"
-          }}
-        >
-          <Text
-            style={{
-              lineHeight: 0,
-              color: "#4d9de2",
-              fontWeight: "400",
-              fontSize: 14,
-              minWidth: 0
-            }}
-            children={"Detail"}
-          />
-          <Icon
-            source={"AntDesign"}
-            name={"right"}
-            size={20}
-            color={"#4d9de2"}
-          />
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          backgroundColor: "rgba(244, 250, 255, 0.74)",
-          padding: 10,
-          borderRadius: 16,
-          opacity: 1,
-          marginTop: 22,
-          borderStyle: "solid",
-          borderWidth: 1,
-          borderColor: "#559cfa"
-        }}
-      >
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            justifyContent: "flex-start",
-            padding: 10,
-            borderWidth: 0,
-            borderRadius: 0,
-            backgroundColor: "#f9fcff"
-          }}
-        >
-          <Text
-            children={"05 June 2019"}
-            style={{
-              color: "#70aee1",
-              fontWeight: "500",
-              paddingBottom: 5,
-              fontSize: 14
-            }}
-          />
-          <Text
-            children={"• Baclofen Oral 350 mg "}
-            style={{
-              color: "#70aee1",
-              fontWeight: "400",
-              paddingBottom: 5,
-              fontSize: 14
-            }}
-          />
-        </View>
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            padding: 10,
-            borderWidth: 0,
-            borderRadius: 0,
-            backgroundColor: "#f9fcff"
-          }}
-        >
-          <Text
-            style={{
-              lineHeight: 0,
-              color: "#4d9de2",
-              fontWeight: "400",
-              fontSize: 14,
-              minWidth: 0
-            }}
-            children={"Detail"}
-          />
-          <Icon
-            source={"AntDesign"}
-            name={"right"}
-            size={20}
-            color={"#4d9de2"}
-          />
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          backgroundColor: "rgba(244, 250, 255, 0.74)",
-          padding: 10,
-          borderRadius: 16,
-          opacity: 1,
-          marginTop: 22,
-          borderStyle: "solid",
-          borderWidth: 1,
-          borderColor: "#559cfa"
-        }}
-      >
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            justifyContent: "flex-start",
-            padding: 10,
-            borderWidth: 0,
-            borderRadius: 0,
-            backgroundColor: "#f9fcff"
-          }}
-        >
-          <Text
-            children={"05 June 2019"}
-            style={{
-              color: "#70aee1",
-              fontWeight: "500",
-              paddingBottom: 5,
-              fontSize: 14
-            }}
-          />
-          <Text
-            children={"• Baclofen Oral 350 mg "}
-            style={{
-              color: "#70aee1",
-              fontWeight: "400",
-              paddingBottom: 5,
-              fontSize: 14
-            }}
-          />
-        </View>
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            padding: 10,
-            borderWidth: 0,
-            borderRadius: 0,
-            backgroundColor: "#f9fcff"
-          }}
-        >
-          <Text
-            style={{
-              lineHeight: 0,
-              color: "#4d9de2",
-              fontWeight: "400",
-              fontSize: 14,
-              minWidth: 0
-            }}
-            children={"Detail"}
-          />
-          <Icon
-            source={"AntDesign"}
-            name={"right"}
-            size={20}
-            color={"#4d9de2"}
-          />
-        </View>
-      </TouchableOpacity>
+      />
     </ScrollView>
   );
 });
