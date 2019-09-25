@@ -5,7 +5,7 @@ import { Text } from 'react-native-ui-kitten';
 import { Icon } from '@src/libs';
 import { useNavigation } from 'react-navigation-hooks';
 
-export default observer(({ meta }: any) => {
+export default observer(() => {
   const nav = useNavigation();
   return (
     <View
@@ -162,7 +162,7 @@ export default observer(({ meta }: any) => {
           borderColor: 'rgba(82, 188, 80, 0.69)',
           borderWidth: 3
         }}
-        onPress={() => (meta.page = 1)}
+        onPress={() => nav.navigate('Main/AppointmentDetail')}
       >
         <Text
           style={{
@@ -206,7 +206,7 @@ export default observer(({ meta }: any) => {
           >
             <Text
               style={{ fontFamily: 'semibold', fontSize: 16, color: '#46cb43' }}
-              children={'dr. ASTUTI, Sp.S  '}
+              children={'dr. Purnomo, Sp.S'}
             />
             <Text
               style={{
@@ -215,7 +215,7 @@ export default observer(({ meta }: any) => {
                 color: '#46cb43',
                 paddingTop: 2
               }}
-              children={'Poliklinik Umum I'}
+              children={'Poliklinik Umum'}
             />
           </View>
         </View>
