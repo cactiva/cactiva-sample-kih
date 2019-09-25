@@ -135,12 +135,12 @@ export default observer(({ meta }: any) => {
             }}
           >
             <Text
-              style={{ fontFamily: 'semibold', fontSize: 16, color: '#37A2FF' }}
-              children={'• Decolgen (1 tablet)'}
+              style={{ fontFamily: "semibold", fontSize: 16, color: "#37A2FF" }}
+              children={"• Tab Nurokind-LC (1 tablet)"}
             />
             <Text
-              style={{ fontFamily: 'semibold', fontSize: 16, color: '#37A2FF' }}
-              children={'• Amoxsan (1 tablet)'}
+              style={{ fontFamily: "semibold", fontSize: 16, color: "#37A2FF" }}
+              children={"• Tab Aceclofenac (1 tablet)"}
             />
           </View>
         </View>
